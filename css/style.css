@@ -2,7 +2,7 @@
 body {
     font-family: 'Noto Sans TC', sans-serif;
     margin: 0; padding: 0; line-height: 1.8;
-    background-color: #F7F7E6; color: #333;
+    background-color: #e7dbc7; color: #333;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
