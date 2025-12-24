@@ -1,11 +1,13 @@
+/* --- 基礎設定 --- */
 body {
     font-family: 'Noto Sans TC', sans-serif;
     margin: 0; padding: 0; line-height: 1.8;
-    background-color: #e7dbc7; color: #333;
+    background-color: #F7F7E6; color: #333;
     scroll-behavior: smooth;
     -webkit-font-smoothing: antialiased;
 }
 
+/* 宋體套用：標題與感性內容 */
 h1, h2, h3, .about-content, .about-subtitle, .hero-overlay p {
     font-family: 'Noto Serif TC', serif;
 }
@@ -21,101 +23,95 @@ header {
 }
 .header-left { display: flex; align-items: center; gap: 20px; }
 .logo-img { height: 40px; width: auto; filter: brightness(0) invert(1); }
-.header-award { color: #e7dbc7; font-size: 0.85em; letter-spacing: 1px; }
+.header-award { color: #ECF0F1; font-size: 0.85em; letter-spacing: 1px; }
 
 .header-social { display: flex; gap: 15px; align-items: center; }
 .social-icon-img { height: 28px; width: auto; transition: opacity 0.3s; }
 .social-icon-img:hover { opacity: 0.7; }
 
-/* --- Hero & About --- */
-#hero { height: 75vh; position: relative; overflow: hidden; background: #000; }
-.carousel-img { width: 100%; height: 100%; object-fit: cover; position: absolute; opacity: 0; transition: 1.5s; }
+/* --- 修正：Hero 輪播區 (鎖定 16:9 比例) --- */
+#hero { 
+    width: 100%;
+    aspect-ratio: 16 / 9; /* 強制維持與照片相同的 16:9 比例 */
+    max-height: 85vh;     /* 防止在超大螢幕上過高，保留可視範圍 */
+    position: relative; 
+    overflow: hidden; 
+    background: #000; 
+}
+.carousel-img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover;    /* 填滿容器 */
+    object-position: center; /* 始終以照片中心為基準 */
+    position: absolute; 
+    opacity: 0; 
+    transition: 1.5s; 
+}
 .carousel-img.active { opacity: 1; }
-.hero-overlay { position: absolute; width: 100%; height: 100%; background: rgba(0,0,0,0.3); display: flex; flex-direction: column; justify-content: center; align-items: center; color: white; text-align: center; }
-.hero-overlay h1 { font-size: 3.5em; margin: 0; font-weight: 700; letter-spacing: 4px; }
-.hero-overlay p { font-size: 1.2em; letter-spacing: 2px; margin-top: 10px; }
+.hero-overlay { 
+    position: absolute; 
+    width: 100%; height: 100%; 
+    background: rgba(0,0,0,0.3); 
+    display: flex; flex-direction: column; justify-content: center; align-items: center; 
+    color: white; text-align: center; 
+}
+.hero-overlay h1 { font-size: clamp(2em, 8vw, 5em); margin: 0; font-weight: 700; letter-spacing: 4px; }
+.hero-overlay p { font-size: clamp(1em, 2vw, 1.2em); letter-spacing: 2px; margin-top: 10px; }
 
-#about { padding: 80px 20px; text-align: center; background: #F7F7E6; }
+/* --- About (關於宿喜) --- */
+#about { padding: 60px 20px; text-align: center; background: #F7F7E6; }
 .about-container { max-width: 750px; margin: 0 auto; }
 .about-subtitle { color: #C1735C; font-size: 0.85em; letter-spacing: 3px; font-weight: 700; }
 #about h2 { font-size: 2.2em; color: #4B694F; margin: 15px 0 30px; }
-.about-content { font-size: 1.15em; text-align: left; color: #444; }
+.about-content { font-size: 1.1em; text-align: left; color: #444; }
 .about-content p { text-indent: 2em; margin-bottom: 20px; }
 
 /* --- Rooms (房型區 - 分頁式) --- */
-#rooms { 
-    background-color: #fcfcfc; 
-    padding: 80px 20px;
-    text-align: center; /* 標題置中 */
-}
-.section-title { font-size: 2em; color: #4B694F; margin-bottom: 40px; }
+#rooms { background-color: #fcfcfc; padding: 60px 20px; text-align: center; }
+.section-title { font-size: 2em; color: #4B694F; margin-bottom: 30px; }
 
-/* 分頁按鈕樣式 */
-.room-tabs-nav {
-    display: flex; justify-content: center; gap: 0; margin-bottom: 40px; border-bottom: 1px solid #eee;
-}
+.room-tabs-nav { display: flex; justify-content: center; gap: 0; margin-bottom: 40px; border-bottom: 1px solid #eee; }
 .tab-btn {
-    background: none; border: none; 
-    padding: 15px 30px; font-size: 1.1em; cursor: pointer;
-    font-family: 'Noto Serif TC', serif; color: #888; transition: 0.3s;
-    position: relative;
+    background: none; border: none; padding: 15px 30px; font-size: 1.1em; cursor: pointer;
+    font-family: 'Noto Serif TC', serif; color: #888; transition: 0.3s; position: relative;
 }
-.tab-btn::after {
-    content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background: transparent; transition: 0.3s;
-}
-.tab-btn:hover { color: #4B694F; }
+.tab-btn::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background: transparent; transition: 0.3s; }
 .tab-btn.active { color: #4B694F; font-weight: bold; }
 .tab-btn.active::after { background: #4B694F; }
 
-/* 分頁內容切換 */
 .room-tab-content { display: none; animation: fadeIn 0.5s; }
 .room-tab-content.active { display: block; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
 .room-container { max-width: 1000px; margin: 0 auto; }
-.room-item { 
-    display: flex; flex-direction: column; background: white; 
-    border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-}
-
+.room-item { display: flex; flex-direction: column; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
 .room-image-side { flex: 1; }
-.room-portrait { width: 100%; height: 100%; object-fit: cover; min-height: 450px; }
-
-.room-info-side { flex: 1.2; padding: 50px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
-.room-header { border-bottom: 1px dashed #D4C9B5; margin-bottom: 25px; padding-bottom: 15px; }
+.room-portrait { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+.room-info-side { flex: 1.2; padding: 40px; text-align: left; display: flex; flex-direction: column; justify-content: center; }
+.room-header { border-bottom: 1px dashed #D4C9B5; margin-bottom: 20px; padding-bottom: 15px; }
 .room-header h3 { color: #4B694F; margin: 0; font-size: 1.8em; }
-.size-tag { color: #999; font-size: 0.9em; }
-.room-spec { list-style: none; padding: 0; margin: 0; }
-.room-spec > li { margin-bottom: 15px; color: #444; }
 .price { color: #C1735C; font-size: 1.6em; font-weight: bold; }
-.room-spec ul { padding-left: 20px; margin-top: 8px; color: #666; font-size: 0.95em; }
+.room-spec { list-style: none; padding: 0; margin: 0; }
+.room-spec li { margin-bottom: 10px; color: #444; }
 
-#social { padding: 80px 20px; background: #fff; text-align: center; }
-.instagram-embed-placeholder { 
-    max-width: 500px; /* 限制最大寬度 */
-    margin: 0 auto;   /* 置中 */
-    border: 1px solid #eee; 
-    border-radius: 8px; 
-    overflow: hidden; 
-}
+/* --- Social (限制尺寸) --- */
+#social { padding: 60px 20px; background: #fff; text-align: center; }
+.instagram-embed-placeholder { max-width: 500px; margin: 0 auto; border: 1px solid #eee; border-radius: 8px; overflow: hidden; }
 
-/* --- Contact & Footer --- */
-#booking-cta { padding: 100px 20px; background: #F8F8F0; text-align: center; }
-.contact-grid { display: flex; flex-direction: column; gap: 25px; max-width: 700px; margin: 40px auto; }
-.contact-item { background: white; padding: 30px; border: 1px solid #D4C9B5; border-radius: 12px; transition: 0.3s; }
-.contact-item:hover { border-color: #C1735C; }
+/* --- Booking (預約與地址) --- */
+#booking-cta { padding: 80px 20px; background: #F8F8F0; text-align: center; }
+.contact-grid { display: flex; flex-direction: column; gap: 20px; max-width: 700px; margin: 30px auto; }
+.contact-item { background: white; padding: 25px; border: 1px solid #D4C9B5; border-radius: 12px; }
 .contact-icon { width: 45px; margin-bottom: 15px; }
-.contact-detail { font-size: 1.5em; font-weight: bold; color: #C1735C; }
-.address-info { margin-top: 50px; border-top: 1px solid #D4C9B5; padding-top: 30px; }
+.contact-detail { font-size: 1.4em; font-weight: bold; color: #C1735C; }
+.address-info { margin-top: 40px; border-top: 1px solid #D4C9B5; padding-top: 20px; }
 
-footer { background: #2C3E50; color: #BDC3C7; padding: 50px 20px; text-align: center; font-size: 0.9em; letter-spacing: 1px; }
-footer p { margin: 8px 0; }
+/* --- Footer --- */
+footer { background: #2C3E50; color: #BDC3C7; padding: 40px 20px; text-align: center; font-size: 0.9em; }
 
 /* --- 桌面版配置 --- */
 @media (min-width: 768px) {
     .room-item { flex-direction: row; }
-    .room-portrait { min-height: 550px; }
     .contact-grid { flex-direction: row; }
     .contact-item { flex: 1; }
-    .hero-overlay h1 { font-size: 5em; }
 }
