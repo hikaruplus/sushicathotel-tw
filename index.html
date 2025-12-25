@@ -3,31 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宿喜貓旅</title>
-    
+    <title>宿喜貓旅SushiCatHotel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="css/style.css"> 
 </head>
 <body>
-
     <header>
-        <div class="header-left">
-            <div class="logo">
-                <img src="images/your-logo.png" alt="宿喜貓旅 Logo" class="logo-img">
-            </div>
-            <div class="header-award">榮獲2025台北市寵物旅館評鑑優等</div>
+        <div class="logo">
+            <img src="images/sushi-logo1.png" alt="宿喜貓旅Logo" class="logo-img">
         </div>
-        <div class="header-social">
-            <a href="https://www.facebook.com/share/1AHA3qsque/" target="_blank">
-                <img src="images/fb-icon.png" alt="Facebook" class="social-icon-img">
-            </a>
-            <a href="https://instagram.com/sushicathouse" target="_blank">
-                <img src="images/ig-icon.png" alt="Instagram" class="social-icon-img">
-            </a>
-        </div>
+        <div class="header-award">2025台北市寵物旅館評鑑優等</div>
     </header>
 
     <section id="hero">
@@ -35,26 +22,31 @@
             <img src="images/cat-slide-1.jpg" class="carousel-img active">
             <img src="images/cat-slide-2.jpg" class="carousel-img">
             <img src="images/cat-slide-3.jpg" class="carousel-img">
+            <img src="images/cat-slide-4.jpg" class="carousel-img">
+            <img src="images/cat-slide-5.jpg" class="carousel-img">
             <div class="hero-overlay">
                 <h1>宿喜貓旅</h1>
-                <p>在您外出時，給您的愛貓最舒適的家</p>
+                <p>讓每一隻貓，都被溫柔以待。</p>
             </div>
         </div>
     </section>
 
     <section id="about">
         <div class="about-container">
-            <span class="about-subtitle">ABOUT US</span>
-            <h2>關於宿喜</h2>
+            <span class="section-subtitle">ABOUT US</span>
+            <h2 class="section-title">🐈關於宿喜</h2>
             <div class="about-content">
-                <p>宿喜貓旅的誕生，源自一群視貓如命的夥伴。</p>
-                <p>我們打造了一個充滿愛與溫度的空間。堅持專業的照護與細膩的陪伴，守護每一份託付。讓您能帶著安心出發，因為您的愛貓在這裡，正享受著家人的呵護。</p>
+             <p>宿喜貓旅的誕生，源自對貓咪最真的喜愛。</p>
+             <p>這裡，沒有過度的裝潢，只有乾淨舒適的空間、專業細緻的照護，以及對待毛孩的真心。<br>
+                我們以專業為基礎，用溫柔守護每一位毛孩，讓牠們在放鬆的環境中，被理解、被尊重、被好好照顧。</p>
+             <p>在宿喜，照顧從來不是形式，而是一份發自內心的承諾。</p>
             </div>
         </div>
     </section>
 
     <section id="rooms">
-        <h2 class="section-title">🏠 專為貓咪設計的舒適房型</h2>
+        <span class="section-subtitle">ROOMTYPE & SERVICE</span>
+        <h2 class="section-title">🏠房型與服務</h2>
         
         <div class="room-tabs-nav">
             <button class="tab-btn active" onclick="openRoom(event, 'standard')">標準寬平房</button>
@@ -65,23 +57,18 @@
             <div id="standard" class="room-tab-content active">
                 <div class="room-item">
                     <div class="room-image-side">
-                        <img src="images/room-standard.jpg" alt="標準寬平房" class="room-portrait">
+                        <img src="images/room-standard.jpg" alt="貓旅標準寬平房" class="room-portrait">
                     </div>
                     <div class="room-info-side">
                         <div class="room-header">
                             <h3>標準寬平房</h3>
-                            <span class="size-tag">W80 D90 H120</span>
+                            <span class="size-tag">W80 D90 H120cm</span>
                         </div>
                         <ul class="room-spec">
                             <li><strong>格局：</strong>二跳台二窩</li>
                             <li><strong>價格：</strong><span class="price">$500</span> / 晚</li>
                             <li><strong>設備：</strong>24小時攝影機</li>
-                            <li><strong>服務：</strong>
-                                <ul>
-                                    <li>獨立放風時間（不與其他家庭貓咪接觸）</li>
-                                    <li>貓管家每日陪玩、每日生活回報</li>
-                                </ul>
-                            </li>
+                            <li><strong>服務：</strong>獨立放風、貓管家陪玩回報</li>
                         </ul>
                     </div>
                 </div>
@@ -90,23 +77,18 @@
             <div id="deluxe" class="room-tab-content">
                 <div class="room-item">
                     <div class="room-image-side">
-                        <img src="images/room-deluxe.jpg" alt="挑高透天厝" class="room-portrait">
+                        <img src="images/room-deluxe.jpg" alt="貓旅挑高透天厝" class="room-portrait">
                     </div>
                     <div class="room-info-side">
                         <div class="room-header">
                             <h3>挑高透天厝</h3>
-                            <span class="size-tag">W64 D90 H210</span>
+                            <span class="size-tag">W64 D90 H210cm</span>
                         </div>
                         <ul class="room-spec">
                             <li><strong>格局：</strong>四跳台四窩</li>
                             <li><strong>價格：</strong><span class="price">$700</span> / 晚</li>
-                            <li><strong>加貓費：</strong>第一貓+$200/晚，第二貓+$100/晚</li>
-                            <li><strong>服務：</strong>
-                                <ul>
-                                    <li>獨立放風時間（不與其他家庭貓咪接觸）</li>
-                                    <li>貓管家每日陪玩、每日生活回報</li>
-                                </ul>
-                            </li>
+                            <li><strong>加貓：</strong>第一貓+$200/晚</li>
+                            <li><strong>服務：</strong>獨立放風、貓管家陪玩回報</li>
                         </ul>
                     </div>
                 </div>
@@ -115,56 +97,79 @@
     </section>
 
     <section id="social">
-        <h2 class="section-title">📸 貓咪日常與最新動態</h2>
+        <span class="section-subtitle">LATEST UPDATES</span>
+        <h2 class="section-title">🎉最新動態</h2>
         <div class="instagram-embed-placeholder">
             <iframe src="https://www.instagram.com/sushicathouse/embed/" width="100%" height="500px" frameborder="0"></iframe>
         </div>
     </section>
 
     <section id="booking-cta">
-        <h2 class="section-title">📞 立即預約</h2>
+        <span class="section-subtitle">RESERVE</span>
+        <h2 class="section-title">💁預約資訊</h2>
         <div class="contact-grid">
             <div class="contact-item">
                 <img src="images/icon-phone.png" alt="電話" class="contact-icon">
-                <h3>店長電話</h3>
-                <p class="contact-detail">0937-858-529</p>
+                <div class="contact-text">
+                    <p class="contact-detail">0937-858-529</p>
+                </div>
             </div>
             <div class="contact-item">
                 <img src="images/icon-line.png" alt="Line" class="contact-icon">
-                <h3>Line ID</h3>
-                <p class="contact-detail">@sushicat</p>
+                <div class="contact-text">
+                    <p class="contact-detail">@sushicathotel</p>
+                </div>
             </div>
         </div>
-        <div class="address-info">
-            <h3>🐈 旅館地址</h3>
-            <p>臺北市中正區南昌路二段206號2F-3</p>
+        <p class="disclaimer">
+            入住貓咪，須經完整三合一或五合一預防注射，若有特殊照顧需求、病史請先告知，需簽訂相關入住契約。
+        </p>
+    </section>
+
+    <section id="map-section">
+        <span class="section-subtitle">ADDRESS</span>
+        <h2 class="section-title">📍貓旅位置</h2>
+        <div class="map-container">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3615.1481!2d121.5221!3d25.0240!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3442a9fe27759753%3A0x6cc28a10ea08b588!2z566_5Zac6LKT5peF!5e0!3m2!1szh-TW!2stw!4v1703440000000!5m2!1szh-TW!2stw" 
+            width="100%" 
+            height="450" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        
+</iframe>
         </div>
     </section>
 
     <footer>
-        <div class="footer-content">
-            <p>宿喜貓商事（特寵業字V1090283-00）</p>
-            <p>© 2026 All Rights Reserved.</p>
+    <div class="footer-container">
+        <div class="footer-main">
+            <div class="footer-left">
+                <img src="images/sushi-logo2.png" alt="宿喜貓旅 Logo" class="footer-logo-horizontal">
+                <div class="footer-contact-info">
+                    <p>📍臺北市中正區南昌路二段206號2F-3</p>
+                    <p>🐈特寵業字第V1090283-00</p>
+                </div>
+            </div>
+
+            <div class="footer-right">
+                <div class="footer-social-links">
+                    <a href="https://www.facebook.com/SushiCatHouse" target="_blank"><img src="images/fb-icon.png" class="footer-social-img" alt="Facebook"></a>
+                    <a href="https://www.instagram.com/sushicathouse" target="_blank"><img src="images/ig-icon.png" class="footer-social-img" alt="Instagram"></a>
+                    <a href="http://line.me/ti/p/zXXFvocYyf" target="_blank"><img src="images/line-icon.png" class="footer-social-img" alt="Line"></a>
+                </div>
+            </div>
         </div>
-    </footer>
+
+        <div class="footer-bottom">
+            <p>Copyright © 2026 宿喜貓商事 All Rights Reserved.</p>
+        </div>
+    </div>
+</footer>
 
     <script>
-        // 房型分頁切換邏輯
-        function openRoom(evt, roomName) {
-            var i, tabContent, tabBtns;
-            tabContent = document.getElementsByClassName("room-tab-content");
-            for (i = 0; i < tabContent.length; i++) {
-                tabContent[i].classList.remove("active");
-            }
-            tabBtns = document.getElementsByClassName("tab-btn");
-            for (i = 0; i < tabBtns.length; i++) {
-                tabBtns[i].classList.remove("active");
-            }
-            document.getElementById(roomName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-
-        // 輪播邏輯
+        // 5張圖片輪播邏輯
         const slides = document.querySelectorAll('.carousel-img');
         let currentSlide = 0;
         setInterval(() => {
@@ -172,6 +177,17 @@
             currentSlide = (currentSlide + 1) % slides.length;
             slides[currentSlide].classList.add('active');
         }, 5000);
+
+        // 房型切換
+        function openRoom(evt, roomName) {
+            var i, tabContent, tabBtns;
+            tabContent = document.getElementsByClassName("room-tab-content");
+            for (i = 0; i < tabContent.length; i++) tabContent[i].classList.remove("active");
+            tabBtns = document.getElementsByClassName("tab-btn");
+            for (i = 0; i < tabBtns.length; i++) tabBtns[i].classList.remove("active");
+            document.getElementById(roomName).classList.add("active");
+            evt.currentTarget.classList.add("active");
+        }
     </script>
 </body>
 </html>
