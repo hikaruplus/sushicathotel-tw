@@ -1,0 +1,256 @@
+/* --- 基礎設定 --- */
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    margin: 0; padding: 0; line-height: 1.8;
+    background-color: #ebdcc8;
+    color: #333;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .section-subtitle, .tab-btn {
+    font-family: 'Noto Serif TC', serif;
+}
+
+/* --- Header --- */
+header {
+    background-color: #2C3E50;
+    padding: 12px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; top: 0; z-index: 1000;
+}
+.logo-img { height: 42px; width: auto; filter: brightness(0) invert(1); }
+.header-award { color: #ECF0F1; font-size: 0.9em; letter-spacing: 1px; }
+
+/* --- 1. 輪播圖修正 --- */
+#hero {
+    padding: 0; 
+    position: relative;
+    /* 5. 手機版：高度 80vh (直式感受) */
+    height: 80vh; 
+    overflow: hidden;
+    background-color: #000;
+}
+
+.carousel-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0; 
+    transition: opacity 1s ease-in-out; /* 淡出淡入效果 */
+}
+
+.carousel-img.active {
+    opacity: 1; 
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.3); /* 略微變暗，讓白色文字更清晰 */
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.hero-overlay h1 { font-size: clamp(2.5em, 8vw, 5em); margin: 0; letter-spacing: 5px; }
+.hero-overlay p { font-size: clamp(1em, 2vw, 1.3em); margin-top: 10px; }
+
+/* --- 3. 標題間距優化：縮短英/中文字距離 --- */
+.section-subtitle {
+    display: block; text-align: center; color: #C1735C;
+    font-size: 0.85em; letter-spacing: 4px; font-weight: 700; 
+    margin-bottom: 2px !important; /* 縮短與下方中文字距離 */
+}
+.section-title { 
+    text-align: center; font-size: 2.2em; color: #4B694F; 
+    margin-top: 0 !important; /* 移除上方間距 */
+    margin-bottom: 35px; 
+}
+
+/* --- 6. 區塊底色交錯區隔 --- */
+section { padding: 80px 20px; }
+
+/* 奇數區塊使用 #ebdcc8 */
+section:nth-of-type(odd) {
+    background-color: #ebdcc8;
+}
+/* 偶數區塊使用 #F2EBE3 */
+section:nth-of-type(even) {
+    background-color: #F2EBE3;
+}
+
+/* --- 4. 內容寬度限制：關於宿喜、最新消息 --- */
+#about .about-container,
+#social .instagram-embed-placeholder,
+#booking-cta .contact-grid {
+    max-width: 850px; /* 限制電腦版顯示寬度，不讓文字排得太開 */
+    margin: 0 auto;
+}
+
+/* --- About (關於宿喜) 內容調整 --- */
+.about-content { font-size: 1.1em; text-align: left; color: #444; }
+.about-content p { text-indent: 2em; margin-bottom: 20px; }
+
+/* --- 房型區 --- */
+.room-tabs-nav { display: flex; justify-content: center; gap: 0; margin-bottom: 40px; border-bottom: 1px solid #d4c9b5; }
+.tab-btn {
+    background: none; border: none; padding: 15px 30px; font-size: 1.1em; cursor: pointer;
+    color: #888; transition: 0.3s; position: relative;
+}
+.tab-btn.active { color: #4B694F; font-weight: bold; }
+.tab-btn.active::after { content: ''; position: absolute; bottom: -1px; left: 0; width: 100%; height: 3px; background: #4B694F; }
+
+.room-container { max-width: 1050px; margin: 0 auto; }
+.room-tab-content { display: none; animation: fadeIn 0.5s; }
+.room-tab-content.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+.room-item { display: flex; flex-direction: column; background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+.room-portrait { width: 100%; height: 100%; object-fit: cover; min-height: 400px; }
+.room-info-side { padding: 40px; display: flex; flex-direction: column; justify-content: center; }
+.room-header { border-bottom: 1px dashed #eee; margin-bottom: 20px; padding-bottom: 15px; }
+.room-header h3 { color: #4B694F; font-size: 1.8em; margin: 0; }
+.price { color: #C1735C; font-size: 1.6em; font-weight: bold; }
+.room-spec { list-style: none; padding: 0; margin: 0; }
+.room-spec li { margin-bottom: 12px; }
+
+/* --- 5. 預約資訊優化：縮短圖片與資訊距離 --- */
+.contact-grid {
+    display: flex; flex-direction: column; gap: 15px;
+}
+.contact-item {
+    background: #ffffff; padding: 18px 32px; border-radius: 14px;
+    display: flex; align-items: center; gap: 24px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+.contact-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+.contact-icon {
+    width: 36px; height: 36px; flex-shrink: 0;
+    margin-bottom: 0 !important; /* 確保與文字對齊 */
+}
+.contact-detail {
+    font-size: 1.35em; font-weight: 600; color: #C1735C; margin: 0;
+}
+.disclaimer {
+    max-width: 900px; margin: 30px auto 0; font-size: 0.85em; color: #7a6e5f; text-align: center;
+}
+
+/* --- 地圖區塊修正 --- */
+#map-section { 
+    width: 100%; 
+    padding: 80px 0 60px 0 !important; /* 增加底部 60px 留白 */
+    background-color: #F2EBE3 !important; /* 強制換色，與 Footer 產生對比 */
+}
+
+.map-container { 
+    max-width: 1000px; /* 電腦版不讓地圖撐太寬 */
+    margin: 0 auto;
+    line-height: 0; 
+    border: 1px solid #d4c9b5; /* 增加邊框感 */
+}
+
+/* --- Footer 修正：確保社群連結靠右 --- */
+footer {
+    background-color: #ebdcc8; 
+    padding: 60px 20px 30px;
+    border-top: 2px solid #bba68d !important;
+}
+
+.footer-container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+}
+
+.footer-main { 
+    display: flex; 
+    flex-direction: column; /* 手機版垂直置中 */
+    align-items: center;
+    text-align: center;
+    gap: 30px; 
+    padding-bottom: 40px; 
+}
+
+/* 社群連結區域 */
+.footer-social-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center; /* 手機版置中 */
+}
+
+.footer-social-img {
+    width: 32px !important;
+    height: 32px !important;
+    object-fit: contain;
+    transition: 0.3s;
+}
+
+.footer-social-img:hover { 
+    transform: translateY(-3px); /* 懸停時微跳動效果 */
+    opacity: 0.8;
+}
+
+/* 底部版權宣告 */
+.footer-bottom { 
+    border-top: 1px solid rgba(0,0,0,0.1); 
+    padding-top: 25px; 
+    text-align: center; 
+    font-size: 0.8em; 
+    color: #888; 
+}
+
+/* --- 桌面版配置 (RWD)：讓社群連結回到右邊 --- */
+@media (min-width: 768px) {
+    .footer-main {
+        flex-direction: row; /* 電腦版改為水平排列 */
+        justify-content: space-between; /* 關鍵：將內容推向左右兩端 */
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .footer-social-links {
+        justify-content: flex-end; /* 電腦版社群圖示靠右對齊 */
+    }
+}
+
+/* --- 桌面版配置 (RWD) --- */
+@media (min-width: 768px) {
+    .room-item { flex-direction: row; }
+    .room-image-side, .room-info-side { flex: 1; }
+    .contact-grid { flex-direction: row; }
+    .contact-item { flex: 1; justify-content: center; flex-direction: row; }
+    .footer-main { flex-direction: row; justify-content: space-between; }
+}
+
+/* --- 滾動淡入動畫設定 --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px); /* 初始位置稍微向下 */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out; /* 動作持續 0.8 秒 */
+    will-change: opacity, transform;
+}
+
+/* 當偵測到進入視窗時，加入這個 Class 來觸發動畫 */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
